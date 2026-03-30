@@ -201,25 +201,23 @@ with tabs[5]:
         st.dataframe(df); st.download_button('Download Stability CSV', get_csv(df), 'stability.csv')
         # --- 코드 맨 아래에 이 내용을 추가하세요 ---
 
-footer_content = """
+header_footer_style = """
 <style>
-    .ryangeun-footer {
-        position: fixed;
-        right: 30px;         /* 오른쪽에서 좀 더 안쪽으로 (로그창 피하기) */
-        bottom: 20px;        /* 바닥에서 좀 더 위쪽으로 */
+    .ryangeun-header {
+        position: fixed;    /* 화면에 고정 */
+        top: 15px;          /* 위에서 15px 내려옴 (노란색 위치) */
+        right: 20px;        /* 오른쪽에서 20px 안으로 */
         width: auto;
-        color: rgba(0, 0, 0, 0.6); /* 조금 더 진하게 */
+        color: rgba(0, 0, 0, 0.4); /* 연한 회색 */
         font-size: 12px;
         font-family: sans-serif;
-        z-index: 999999;     /* 숫자를 엄청 크게 해서 무조건 맨 위로! */
+        z-index: 999999;    /* 최상단 레이어 */
         pointer-events: none;
-        background-color: rgba(255, 255, 255, 0.5); /* 혹시 모르니 살짝 배경색 추가 */
-        padding: 2px 5px;
-        border-radius: 5px;
+        font-weight: bold;
     }
 </style>
-<div class="ryangeun-footer">
+<div class="ryangeun-header">
     Created by Ryangeun
 </div>
 """
-st.markdown(footer_content, unsafe_allow_html=True)
+st.markdown(header_footer_style, unsafe_allow_html=True)
