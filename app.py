@@ -203,17 +203,19 @@ with tabs[5]:
 
 footer_content = """
 <style>
-    /* 화면 맨 밑에 고정하고 아주 작게 만드는 마법 */
     .ryangeun-footer {
         position: fixed;
-        right: 20px;
-        bottom: 10px;
+        right: 30px;         /* 오른쪽에서 좀 더 안쪽으로 (로그창 피하기) */
+        bottom: 20px;        /* 바닥에서 좀 더 위쪽으로 */
         width: auto;
-        color: rgba(0, 0, 0, 0.4); /* 연한 회색 */
-        font-size: 11px;           /* 아주 작은 크기 */
+        color: rgba(0, 0, 0, 0.6); /* 조금 더 진하게 */
+        font-size: 12px;
         font-family: sans-serif;
-        z-index: 9999;             /* 그래프보다 위로 */
-        pointer-events: none;      /* 클릭 방해 안 함 */
+        z-index: 999999;     /* 숫자를 엄청 크게 해서 무조건 맨 위로! */
+        pointer-events: none;
+        background-color: rgba(255, 255, 255, 0.5); /* 혹시 모르니 살짝 배경색 추가 */
+        padding: 2px 5px;
+        border-radius: 5px;
     }
 </style>
 <div class="ryangeun-footer">
