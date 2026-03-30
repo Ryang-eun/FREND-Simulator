@@ -199,3 +199,34 @@ with tabs[5]:
                for v in [10.0, 50.0, 100.0] for t in range(dur + 1) for r in range(1, 21)]
         df = pd.DataFrame(res, columns=['Sample', 'Month', 'Rep', 'Value'])
         st.dataframe(df); st.download_button('Download Stability CSV', get_csv(df), 'stability.csv')
+        # --- 코드 맨 아래에 이 내용을 추가하세요 ---
+
+# 1. 오른쪽 하단 구석 고정용 스타일 정의
+footer_style = """
+    <style>
+    #MainMenu {visibility: hidden;} /* streamlit 기본 메뉴 숨기기 (선택사항, 깔끔함) */
+    footer {visibility: hidden;}    /* streamlit 기본 푸터 숨기기 (선택사항, 깔끔함) */
+    
+    .final-footer {
+        position: fixed;            /* 화면에 고정 */
+        right: 15px;               /* 오른쪽 벽에서 15px 띄움 */
+        bottom: 5px;               /* 바닥에서 5px 띄움 */
+        width: auto;               /* 글자 크기만큼만 너비 차지 */
+        background-color: transparent; /* 배경 투명 */
+        color: rgba(0, 0, 0, 0.5); /* 글자 색: 반투명한 검은색 (회색처럼 보임) */
+        text-align: right;          /* 글자 오른쪽 정렬 */
+        font-size: 11px;           /* 아주 작은 글씨 크기 (보통 12~14px) */
+        font-family: sans-serif;   /* 깔끔한 글꼴 */
+        z-index: 1000;             /* 다른 요소(그래프 등)보다 위에 표시 */
+        letter-spacing: 0.5px;      /* 글자 간격 살짝 넓힘 (가독성) */
+    }
+    </style>
+    
+    # 2. 실제 화면에 표시될 HTML 태그
+    <div class="final-footer">
+        <p>Created by Ryangeun</p>
+    </div>
+    """
+
+# 3. 정의한 스타일과 HTML을 Streamlit 화면에 반영
+st.markdown(footer_style, unsafe_allow_html=True)
